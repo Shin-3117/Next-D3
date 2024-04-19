@@ -1,3 +1,7 @@
+"use client";
+// src/app/page.tsx
+import LoginButton from "@/components/loginButton";
+import { SessionProvider } from "next-auth/react";
 import LinePlot from "./../components/linePlot";
 import StackedBarChart from "./../components/linePlot copy";
 import StackedBarChartH from "./../components/linePlot copy 2";
@@ -27,9 +31,11 @@ export default function Home() {
     },
   ];
   return (
-    <main className="m-2">
-      <h1>메인 페이지</h1>
-      {/* <LinePlot data={data} /> */}
+    <main>
+      <SessionProvider>
+        <LoginButton />
+      </SessionProvider>
+
       <StackedBarChart />
       <StackedBarChartH></StackedBarChartH>
     </main>
